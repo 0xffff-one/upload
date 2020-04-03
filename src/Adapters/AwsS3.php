@@ -14,9 +14,9 @@ class AwsS3 extends Flysystem implements UploadAdapter
         /** @var Settings $settings */
         $settings = app()->make(Settings::class);
 
-        $cdnUrl = $settings->get('cdnUrl');
-
-        if (!$cdnUrl) {
+        if ($cdnUrl = $settings->get('awsS3Cdn')) {
+            $file->url = sprintf('%s/%s', $cdnUrl, Arr::get($this->meta, 'path', $file->path));
+        } else {
             $region = $this->adapter->getClient()->getRegion();
             $bucket = $this->adapter->getBucket();
 
