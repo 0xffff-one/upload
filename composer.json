@@ -1,5 +1,5 @@
 {
-    "name": "fof/upload",
+    "name": "fof-0xffff/upload",
     "description": "The file upload extension for the Flarum forum with insane intelligence.",
     "keywords": [
         "upload",
@@ -20,7 +20,9 @@
         "source": "https://github.com/FriendsOfFlarum/upload"
     },
     "require": {
-        "flarum/core": ">=0.1.0-beta.11 <0.1.0-beta.13",
+        "softcreatr/php-mime-detector": "^3.0",
+        "guzzlehttp/guzzle": "^6.0",
+        "flarum/core": ">=0.1.0-beta.10 <0.1.0-beta.14",
         "ramsey/uuid": "^3.5.2",
         "softcreatr/php-mime-detector": "^3.0",
         "guzzlehttp/guzzle": "^6.0"
