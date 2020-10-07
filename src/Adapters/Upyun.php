@@ -7,17 +7,17 @@ use FoF\Upload\File;
 use FoF\Upload\Helpers\Settings;
 use Flarum\Foundation\ValidationException;
 
-class Qiniu extends Flysystem implements UploadAdapter
+class Upyun extends Flysystem implements UploadAdapter
 {
     protected function generateUrl(File $file)
     {
         /** @var Settings $settings */
         $settings = app()->make(Settings::class);
         $path = $file->getAttribute('path');
-        if ($cdnUrl = $settings->get('qiniuCdn')) {
+        if ($cdnUrl = $settings->get('upyunCdn')) {
             $file->url = sprintf('%s/%s', $cdnUrl, $path);
         } else {
-            throw new ValidationException(['upload' => 'QiNiu cloud CDN address is not configured.']);
+            throw new ValidationException(['upload' => 'Upyun cloud CDN address is not configured.']);
         }
     }
 }
